@@ -7,20 +7,28 @@ import org.openqa.selenium.support.*;
 
 public class UserPage extends TestBase {
 
+    @FindBy(id = "user-name")
+    private WebElement userTx;
+    @FindBy(id = "password")
+    private WebElement passwordTx;
+
+    @FindBy(id = "login-button")
+    private WebElement loginBtn;
+
+    @FindBy(xpath = "//div[@id='header_container']/div[2]/span")
+    private WebElement tituloProducts;
+
+    //------------------------------------------------------------
     @FindBy(xpath = "//span[text()='Text Box']")
     private WebElement textBox;
-    @FindAll({@FindBy(css = "#userName"), @FindBy(how = How.ID, using = "userName")})
-    private WebElement fullNameTx;
-    @FindBy(id = "userEmail")
-    private WebElement emailTx;
+
     @FindBy(xpath = "//textarea[@id='currentAddress']")
     private WebElement currentAddressTx;
     @FindBy(xpath = "//textarea[@id='permanentAddress']")
     private WebElement permanentAddressTx;
     @FindBy(id = "submit")
     private WebElement submit;
-    @FindBy(id = "name")
-    private WebElement name;
+
     @FindBy(id = "email")
     private WebElement email;
     @FindBy(xpath = "//p[@id='currentAddress'])")
@@ -37,14 +45,14 @@ public class UserPage extends TestBase {
         js.executeScript("arguments[0].click();", textBox);
     }
 
-    public HomePage enterDataUser(String fullName, String email, String currentAddres, String permanAddress) {
-        fullNameTx.sendKeys(fullName);
-        emailTx.sendKeys(email);
-        currentAddressTx.sendKeys(currentAddres);
-        permanentAddressTx.sendKeys(permanAddress);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", submit);
-        return new HomePage();
+    public ProductPage enterDataUser(String user, String password) {
+        userTx.sendKeys(user);
+        passwordTx.sendKeys(password);
+        loginBtn.click();
+        return new ProductPage();
+    }
+    public boolean validateTituloProducts(String fullName) {
+        return tituloProducts.getText().contains(fullName);
     }
 /*
     public void ejemplo(){
@@ -93,9 +101,7 @@ public class UserPage extends TestBase {
 */
 
 
-    public boolean validateFullName(String fullName) {
-        return name.getText().contains(fullName);
-    }
+
 
     public boolean validateEmail(String UserEmail) {
         return email.getText().contains(UserEmail);

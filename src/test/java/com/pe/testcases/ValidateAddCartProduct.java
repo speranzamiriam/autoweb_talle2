@@ -9,13 +9,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ValidateUser extends TestBase {
+public class ValidateAddCartProduct extends TestBase {
     UserPage userPage;
     HomePage homePage;
 
     ProductPage productPage;
 
-    public ValidateUser() {
+    public ValidateAddCartProduct() {
         super();
     }
 
@@ -28,7 +28,7 @@ public class ValidateUser extends TestBase {
     }
 
     @Test
-    public void validateUser() {
+    public void validateAddCartProducts() {
 
         productPage = userPage.enterDataUser(prop.getProperty("user"), prop.getProperty("password"));
         boolean flagTituloProduct = userPage.validateTituloProducts(prop.getProperty("tituloProduct"));
@@ -58,7 +58,7 @@ public class ValidateUser extends TestBase {
         flagTituloProduct = userPage.validateTituloProducts(prop.getProperty("tituloProduct"));
         Assert.assertTrue(flagTituloProduct);
 
-      
+
     }
 
 
