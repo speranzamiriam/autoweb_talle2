@@ -48,14 +48,9 @@ public class ProductPage extends TestBase {
     private WebElement backProdcutsBtn;
 
 
-
-    //------------------------------------------------------------
-
     public ProductPage() {
         PageFactory.initElements(driver, this);
     }
-
-
 
     public ProductPage escogerPrimerProducto() {
         addCartFirstProduct.click();
@@ -99,54 +94,6 @@ public class ProductPage extends TestBase {
     public void volverProduct() {
         backProdcutsBtn.click();
     }
-
-/*
-    public void ejemplo(){
-        textBox
-                driver.findElement(By.xpath("xxxxx"));
-    }
-    public void ejemplo(){
-        textBox
-        driver.findElement(By.xpath("xxxx"));
-    }
-    public void ejemplo(){
-        textBox
-        driver.findElement(By.xpath("xxxx"));
-    }
-    public void ejemplo(){
-        textBox
-        driver.findElement(By.xpath("xxxxxx"));
-    }
-    public void ejemplo(){
-        textBox
-        driver.findElement(By.xpath("xxxxx"));
-    }
-    public void ejemplo(){
-        textBox
-        driver.findElement(By.xpath("xxxxx"));
-    }
-    public void ejemplo(){
-        textBox
-        driver.findElement(By.xpath("xxxxxx"));
-    }
-    public void ejemplo(){
-        textBox
-    }
-    public void ejemplo(){
-        textBox
-    }
-    public void ejemplo(){
-
-    }
-    public void ejemplo(){
-
-    }
-    public void ejemplo(){
-
-    }
-*/
-
-
 
 
 

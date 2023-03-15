@@ -1,7 +1,6 @@
 package com.pe.testcases;
 
 import com.pe.qa.base.TestBase;
-import com.pe.qa.pages.HomePage;
 import com.pe.qa.pages.ProductPage;
 import com.pe.qa.pages.UserPage;
 import org.testng.Assert;
@@ -11,7 +10,6 @@ import org.testng.annotations.Test;
 
 public class ValidateAddCartProduct extends TestBase {
     UserPage userPage;
-    HomePage homePage;
 
     ProductPage productPage;
 
@@ -22,7 +20,7 @@ public class ValidateAddCartProduct extends TestBase {
     @BeforeMethod
     public void setup() {
         initialization();
-        homePage = new HomePage();
+
         userPage = new UserPage();
         productPage = new ProductPage();
     }
@@ -46,7 +44,7 @@ public class ValidateAddCartProduct extends TestBase {
         boolean flagTitleFormCart = productPage.validateTitleFormCheckout(prop.getProperty("tituloFormCheckout"));
         Assert.assertTrue(flagTitleFormCart);
 
-        productPage.llenarFormulario("Esperanza","Aquino","519");
+        productPage.llenarFormulario("Esperanza", "Aquino", "519");
         boolean flagTitleFormulario = productPage.validateTitleFormFinishCheckout(prop.getProperty("tituloFormAfterCheckout"));
         Assert.assertTrue(flagTitleFormulario);
 
